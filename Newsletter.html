@@ -35,15 +35,34 @@ input[type=submit] {
 input[type=submit]:hover {
   opacity: 0.8;
 }
+
+              nav {
+            display: flex; /* Aliniază linkurile pe un rând */
+            gap: 20px; /* Adaugă spațiu între linkuri */
+            background-color: #f0f0f0; /* Un fundal deschis pentru navigație */
+            padding: 15px;
+            border-radius: 5px;
+        }
+                nav a {
+            text-decoration: none; /* Scoate sublinierea linkurilor */
+            color: black;
+            font-size: 1.2em; /* Mărește puțin textul */
+        }
+        .cart-link {
+            margin-left: auto; /* Împinge coșul în partea dreaptă */
+            font-weight: bold;
+        }
     </style>
     <meta charset="UTF-8"
-    <title>Newsletter</title>
-            <body>
-        <p></p>
+<head>
+  <title>Newsletter</title>
+  <nav>
         <a href = "C:\Users\Rares\lamp-studenti\studenti\Welcome.html">Pagina Welcome</a>
         <a href = "C:\Users\Rares\lamp-studenti\studenti\Homepage.html">Pagina Homepage</a>
         <a href = "C:\Users\Rares\lamp-studenti\studenti\Produse.html">Pagina Produse</a>
-        <p></p>
+        </nav>
+</head>
+            <body>
  <h2>Newsletter</h2>
 
 <form action="/action_page.php">
