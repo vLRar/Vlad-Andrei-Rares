@@ -1,89 +1,36 @@
 <!DOCTYPE html>
 <html>
-    <style>
-        body {font-family: Arial, Helvetica, sans-serif;}
-
-form {
-  border: 3px solid black;
-  font-family: Arial;
-}
-
-.container {
-  padding: 20px;
-  background-color: gray;
-}
-
-input[type=text], input[type=submit] {
-  width: 100%;
-  padding: 12px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid white;
-  box-sizing: border-box;
-}
-
-input[type=checkbox] {
-  margin-top: 16px;
-}
-
-input[type=submit] {
-  background-color: #FF8D23;
-  color: white;
-  border: gray;
-}
-
-input[type=submit]:hover {
-  opacity: 0.8;
-}
-
-              nav {
-            display: flex; /* Aliniază linkurile pe un rând */
-            gap: 20px; /* Adaugă spațiu între linkuri */
-            background-color: #f0f0f0; /* Un fundal deschis pentru navigație */
-            padding: 15px;
-            border-radius: 5px;
-        }
-                nav a {
-            text-decoration: none; /* Scoate sublinierea linkurilor */
-            color: black;
-            font-size: 1.2em; /* Mărește puțin textul */
-        }
-        .cart-link {
-            margin-left: auto; /* Împinge coșul în partea dreaptă */
-            font-weight: bold;
-        }
-    </style>
-    <meta charset="UTF-8"
-<head>
-  <title>Newsletter</title>
-  <nav>
-        <a href = "C:\Users\Rares\lamp-studenti\studenti\Welcome.html">Pagina Welcome</a>
-        <a href = "C:\Users\Rares\lamp-studenti\studenti\Homepage.html">Pagina Homepage</a>
-        <a href = "C:\Users\Rares\lamp-studenti\studenti\Produse.html">Pagina Produse</a>
+    <meta charset="UTF-8">
+    <head>
+        <title>Newsletter</title>
+        <link rel="stylesheet" href="format.css">
+        <nav>
+            <a href="Welcome.html">Welcome</a>
+            <a href="Homepage.html">Homepage</a>
+            <a href="Produse.html">Produse</a>
         </nav>
-</head>
-            <body>
- <h2>Newsletter</h2>
+    </head>
+    <body>
+        <h2>Abonare Newsletter</h2>
 
-<form action="/action_page.php">
-  <div class="container" style = "background-color: #4D4746;">
-    <h2>Abonati-va la newsletter-ul nostru</h2>
-    <p>Introduceti datele de contact mai jos</p>
-  </div>
+        <form action="/action_page.php">
+            <div class="container header-container">
+                <h2>Abonati-va la newsletter-ul nostru</h2>
+                <p>Introduceti datele de contact mai jos</p>
+            </div>
 
-  <div class="container" style="background-color:#4D4746">
-    <input type="text" placeholder="Nume" name="name" required>
-    <input type="text" placeholder="Adresa de email" name="mail" required>
-    <label>
-      <input type="checkbox" checked="checked" name="subscribe" style = "accent-color: #FF8D23;">
-      <span style="color: white;">Daily Newsletter</span>
-    </label>
-  </div>
+            <div class="container">
+                <input type="text" placeholder="Nume" name="name" required>
+                <input type="text" placeholder="Adresa de email" name="mail" required>
+                <label>
+                    <input type="checkbox" checked="checked" name="subscribe">
+                    <span class="checkbox-label">Daily Newsletter</span>
+                </label>
+            </div>
 
-  <div class="container">
-    <input type="submit" value="Subscribe">
-  </div>
-</form>
-
+            <div class="container">
+                <input type="submit" value="Subscribe">
+            </div>
+        </form>
     </body>
 </html>

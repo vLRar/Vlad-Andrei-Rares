@@ -1,0 +1,178 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+h1 {
+    color: #3f51b5;
+    text-align: center;
+    padding-top: 20px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    font-size: 2.5em;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+h2 {
+    color: #3f51b5;
+    text-align: center;
+    padding-top: 20px;
+    margin-bottom: 30px;
+    font-size: 2em;
+}
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    background-color: #3f51b5;
+    padding: 15px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+}
+nav a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.2em;
+    font-weight: 500;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+nav a:hover {
+    background-color: #5c6bc0;
+    text-decoration: none;
+}
+body > a, .checkout-nav a {
+    display: inline-block;
+    margin: 10px 15px;
+    padding: 10px 20px;
+    background-color: #ff8d23;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    text-align: center; /* Centrare text */
+}
+body > a:hover, .checkout-nav a:hover {
+    background-color: #e57d19;
+}
+body.produse a {
+    display: block;
+    max-width: 250px; /* Lățime redusă */
+    margin: 20px auto;
+    padding: 15px 25px;
+    font-size: 1.2em;
+}
+.centerPic {
+    display: block;
+    margin: 0 auto 30px auto;
+    border-radius: 25px;
+    padding: 20px;
+    width: 300px;
+    height: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    transition: transform 0.3s ease-in-out;
+}
+
+.centerPic:hover {
+    transform: scale(1.05);
+}
+.cart {
+    height: 80px;
+    width: 80px;
+    margin-bottom: 30px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    padding: 5px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+form {
+    max-width: 500px;
+    margin: 20px auto;
+    border: none; 
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.container {
+    padding: 20px;
+    background-color: white;
+}
+.header-container {
+    background-color: #3f51b5 !important;
+    color: white;
+    text-align: center;
+}
+.header-container h2 {
+    color: white;
+    margin: 0 0 10px 0;
+    padding: 0;
+}
+.header-container p {
+    margin: 0;
+}
+input[type=text], input[type=submit] {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+input[type=checkbox] {
+    margin-top: 16px;
+    accent-color: #FF8D23;
+}
+input[type=submit] {
+    background-color: #FF8D23;
+    color: white;
+    border: none;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+input[type=submit]:hover {
+    opacity: 0.9;
+}
+.checkbox-label {
+    color: #333;
+    margin-left: 5px;
+}
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -16px;
+}
+
+.col-25 { flex: 25%; }
+.col-50 { flex: 50%; }
+.col-75 { flex: 75%; }
+
+.col-25, .col-50, .col-75 {
+    padding: 0 16px;
+}
+.container {
+    background-color: white;
+    padding: 5px 20px 15px 20px;
+    border: 1px solid lightgrey;
+    border-radius: 3px;
+}
+input[type=text] {
+    margin-bottom: 20px;
+}
+.btn {
+    background-color: #ff8d23;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+.btn:hover {
+    background-color: #e57d19;
+}
+
+@media (max-width: 800px) {
+    .row { flex-direction: column-reverse; }
+    .col-25 { margin-bottom: 20px; }
+}
