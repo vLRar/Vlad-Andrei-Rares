@@ -166,7 +166,11 @@ body {
     font-weight: bold;
     box-shadow: 0 2px 5px rgba(0,0,0,0.3);
     z-index: 100;
+    display: none; 
+    cursor: pointer;
+    transition: opacity 0.3s; 
 }
+
 @media (max-width: 900px) {
 
    .grid-container {
