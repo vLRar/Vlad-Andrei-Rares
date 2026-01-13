@@ -1,159 +1,99 @@
 <!DOCTYPE html>
-<html>
+<html lang="ro">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="format.css">
-<style>
-/* Stiluri specifice care nu sunt în format.css */
-body {
-  padding: 8px; /* Păstrat din stilul original */
-}
-
-* {
-  box-sizing: border-box;
-}
-
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0 -16px;
-}
-
-.col-25 { flex: 25%; }
-.col-50 { flex: 50%; }
-.col-75 { flex: 75%; }
-
-.col-25, .col-50, .col-75 {
-  padding: 0 16px;
-}
-
-.container {
-  background-color: white;
-  padding: 5px 20px 15px 20px;
-  border: 1px solid lightgrey;
-  border-radius: 3px;
-}
-
-input[type=text] {
-  width: 100%;
-  margin-bottom: 20px;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-}
-
-label {
-  margin-bottom: 10px;
-  display: block;
-}
-
-.icon-container {
-  margin-bottom: 20px;
-  padding: 7px 0;
-  font-size: 24px;
-}
-
-a {
-  color: #2196F3;
-}
-
-hr {
-  border: 1px solid lightgrey;
-}
-
-span.price {
-  float: right;
-  color: grey;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finalizare Comandă</title>
+    <link rel="stylesheet" href="format.css">
 </head>
 <body>
 
-<h2>Finalizare Comandă (Checkout)</h2>
+    <div class="grid-container">
+        <header class="site-header">
+            <h1>Finalizare Comandă</h1>
+        </header>
 
-<div class="checkout-nav" style="text-align: center; margin-bottom: 20px;">
-    <a href="Produse.html">Înapoi la produse</a>
-    <a href="Drone.html">Înapoi la drone</a>
-    <a href="Accesori.html">Înapoi la accesorii</a>
-</div>
+        <nav class="site-nav">
+            <a href="Welcome.html">Welcome</a>
+            <a href="Homepage.html">Homepage</a>
+            <a href="Produse.html">Produse</a>
+            <a href="Drone.html">Drone</a>
+            <a href="Accesori.html">Accesorii</a>
+            <a href="Newsletter.html">Newsletter</a>
+            <a href="Checkout.html" class="active">Checkout</a>
+        </nav>
 
-<div class="row">
-  <div class="col-75">
-    <div class="container">
-      <form action="/action_page.php">
-      
-        <div class="row">
-          <div class="col-50">
-            <h3>Billing Address</h3>
-            <label for="fname"><i class="fa fa-user"></i> Full Name</label>
-            <input type="text" id="fname" name="firstname" placeholder="John M. Doe">
-            <label for="email"><i class="fa fa-envelope"></i> Email</label>
-            <input type="text" id="email" name="email" placeholder="john@example.com">
-            <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
-            <input type="text" id="adr" name="address" placeholder="542 W. 15th Street">
-            <label for="city"><i class="fa fa-institution"></i> City</label>
-            <input type="text" id="city" name="city" placeholder="New York">
+        <main class="site-main">
+            
+            <div class="checkout-container">
+                
+                <div class="checkout-form">
+                    <h2>Date de livrare</h2>
+                    <form action="/action_page.php">
+                        <label for="nume">Nume Complet</label>
+                        <input type="text" id="nume" name="nume" placeholder="Ex: Ion Popescu" required>
 
-            <div class="row">
-              <div class="col-50">
-                <label for="state">State</label>
-                <input type="text" id="state" name="state" placeholder="NY">
-              </div>
-              <div class="col-50">
-                <label for="zip">Zip</label>
-                <input type="text" id="zip" name="zip" placeholder="10001">
-              </div>
+                        <label for="email">Email</label>
+                        <input type="text" id="email" name="email" placeholder="ion@email.com" required>
+
+                        <label for="adresa">Adresă de livrare</label>
+                        <input type="text" id="adresa" name="adresa" placeholder="Strada, Număr, Bloc..." required>
+
+                        <div class="form-row">
+                            <div class="half-width">
+                                <label for="oras">Oraș</label>
+                                <input type="text" id="oras" name="oras" placeholder="București">
+                            </div>
+                            <div class="half-width">
+                                <label for="cod">Cod Poștal</label>
+                                <input type="text" id="cod" name="cod" placeholder="123456">
+                            </div>
+                        </div>
+
+                        <h3>Date Card (Simulare)</h3>
+                        <label for="card">Număr Card</label>
+                        <input type="text" id="card" name="card" placeholder="1111-2222-3333-4444">
+
+                        <input type="submit" value="Plătește Acum" class="btn-cumpara" style="width: 100%; border: none; cursor: pointer; margin-top: 20px;">
+                    </form>
+                </div>
+
+                <div class="checkout-cart">
+                    <div class="cart-box">
+                        <h3>Coșul tău <span style="float:right">4 produse</span></h3>
+                        <div class="cart-item">
+                            <span>Drona Phantom X</span>
+                            <span class="price">2500 RON</span>
+                        </div>
+                        <div class="cart-item">
+                            <span>Baterie Extra</span>
+                            <span class="price">450 RON</span>
+                        </div>
+                        <div class="cart-item">
+                            <span>Set Elice</span>
+                            <span class="price">120 RON</span>
+                        </div>
+                        <div class="cart-item">
+                            <span>Taxă Livrare</span>
+                            <span class="price">20 RON</span>
+                        </div>
+                        <hr>
+                        <div class="cart-total">
+                            <strong>Total</strong>
+                            <strong class="price" style="color:black">3090 RON</strong>
+                        </div>
+                    </div>
+                </div>
+
             </div>
-          </div>
 
-          <div class="col-50">
-            <h3>Payment</h3>
-            <label for="fname">Accepted Cards</label>
-            <div class="icon-container">
-              <i class="fa fa-cc-visa" style="color:navy;"></i>
-              <i class="fa fa-cc-amex" style="color:blue;"></i>
-              <i class="fa fa-cc-mastercard" style="color:red;"></i>
-              <i class="fa fa-cc-discover" style="color:orange;"></i>
-            </div>
-            <label for="cname">Name on Card</label>
-            <input type="text" id="cname" name="cardname" placeholder="John More Doe">
-            <label for="ccnum">Credit card number</label>
-            <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
-            <label for="expmonth">Exp Month</label>
-            <input type="text" id="expmonth" name="expmonth" placeholder="September">
-            <div class="row">
-              <div class="col-50">
-                <label for="expyear">Exp Year</label>
-                <input type="text" id="expyear" name="expyear" placeholder="2018">
-              </div>
-              <div class="col-50">
-                <label for="cvv">CVV</label>
-                <input type="text" id="cvv" name="cvv" placeholder="352">
-              </div>
-            </div>
-          </div>
-          
-        </div>
-        <label>
-          <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
-        </label>
-        <input type="submit" value="Continue to checkout" class="btn">
-      </form>
+        </main>
+
+        <footer class="site-footer">
+        </footer>
+
+        <a href="#" id="backToTop">⬆ Sus</a>
     </div>
-  </div>
-  <div class="col-25">
-    <div class="container">
-      <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b>4</b></span></h4>
-      <p><a href="#">Product 1</a> <span class="price">$15</span></p>
-      <p><a href="#">Product 2</a> <span class="price">$5</span></p>
-      <p><a href="#">Product 3</a> <span class="price">$8</span></p>
-      <p><a href="#">Product 4</a> <span class="price">$2</span></p>
-      <hr>
-      <p>Total <span class="price" style="color:black"><b>$30</b></span></p>
-    </div>
-  </div>
-</div>
 
 </body>
 </html>

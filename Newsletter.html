@@ -1,36 +1,50 @@
 <!DOCTYPE html>
-<html>
+<html lang="ro">
+<head>
     <meta charset="UTF-8">
-    <head>
-        <title>Newsletter</title>
-        <link rel="stylesheet" href="format.css">
-        <nav>
-            <a href="Welcome.html">Welcome</a>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newsletter</title>
+    <link rel="stylesheet" href="format.css">
+</head>
+<body>
+
+    <div class="grid-container">
+        <header class="site-header">
+            <h1>Newsletter</h1>
+        </header>
+
+        <nav class="site-nav">
             <a href="Homepage.html">Homepage</a>
-            <a href="Produse.html">Produse</a>
+            <a href="Drone.html">Drone</a>
+            <a href="Accesori.html">Accesorii</a>
+            <a href="Newsletter.html" class="active">Newsletter</a>
+            <a href="Checkout.html">Checkout</a>
         </nav>
-    </head>
-    <body>
-        <h2>Abonare Newsletter</h2>
 
-        <form action="/action_page.php">
-            <div class="container header-container">
-                <h2>Abonati-va la newsletter-ul nostru</h2>
-                <p>Introduceti datele de contact mai jos</p>
-            </div>
+        <main class="site-main">
+            <form action="/action_page.php" style="margin: 0 auto;">
+                <div class="container header-container" style="background-color: #3f51b5; color: white; padding: 10px; border-radius: 5px 5px 0 0;">
+                    <h2>Abonează-te la newsletter</h2>
+                    <p>Primești ultimele oferte pe email</p>
+                </div>
 
-            <div class="container">
-                <input type="text" placeholder="Nume" name="name" required>
-                <input type="text" placeholder="Adresa de email" name="mail" required>
-                <label>
-                    <input type="checkbox" checked="checked" name="subscribe">
-                    <span class="checkbox-label">Daily Newsletter</span>
-                </label>
-            </div>
+                <div class="container" style="padding: 20px; border: 1px solid #ddd;">
+                    <input type="text" placeholder="Nume" name="name" required>
+                    <input type="text" placeholder="Adresa de email" name="mail" required>
+                    <label>
+                        <input type="checkbox" checked="checked" name="subscribe">
+                        <span class="checkbox-label">Vreau noutăți zilnice</span>
+                    </label>
+                    <input type="submit" value="Subscribe" class="btn">
+                </div>
+            </form>
+        </main>
 
-            <div class="container">
-                <input type="submit" value="Subscribe">
-            </div>
-        </form>
-    </body>
+        <footer class="site-footer">
+        </footer>
+        
+        <a href="#" id="backToTop">⬆ Sus</a>
+    </div>
+
+</body>
 </html>
