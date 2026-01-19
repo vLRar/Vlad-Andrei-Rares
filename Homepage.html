@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homepage - Platformă Drone</title> 
+    <title>Homepage - Drone Management</title> 
     <link rel="stylesheet" href="format.css">
 </head>
 <body>
@@ -16,24 +16,86 @@
 
         <nav class="site-nav">
             <a href="Homepage.html" class="active">Homepage</a>
-            <a href="Drone.html">Drone</a>
-            <a href="Accesori.html">Accesorii</a>
+            <a href="Drone.php">Drone</a>
+            <a href="Accesorii.php">Accesorii</a>
             <a href="Newsletter.html">Newsletter</a>
             <a href="Checkout.html">Checkout</a>
         </nav>
 
         <main class="site-main">
-            <h2 style="text-align: center;">Bine ai venit!</h2>
-            <p style="text-align: center;">Descoperă cele mai noi tehnologii în materie de zbor.</p>
             
-            <img class="responsive-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTV2hJRw7uuWHT-Tl8xwPEAqetu_S_4-tUKkw&s" alt="Imagine cu o dronă" style="display:block; margin: 20px auto; max-width: 100%; border-radius: 15px;">
+            <div class="hero-section">
+                <h2>Explorează Cerul Fără Limite</h2>
+                <p>Descoperă cele mai performante drone de la DJI, Autel și Skydio.</p>
+                <a href="Drone.php" class="btn-hero">Vezi Oferta</a>
+            </div>
+
+            <h2 class="section-title">Ce cauți astăzi?</h2>
+            <div class="categories-grid">
+                <a href="Drone.php" class="category-card" style="background-image: url('img/mavic_3_pro.jpg'), url('https://via.placeholder.com/600x400?text=Drone');">
+                    <div class="category-overlay">
+                        <h3>Drone</h3>
+                    </div>
+                </a>
+                <a href="Accesorii.php" class="category-card" style="background-image: url('img/baterie_inteligenta.jpg'), url('https://via.placeholder.com/600x400?text=Accesorii');">
+                    <div class="category-overlay">
+                        <h3>Accesorii</h3>
+                    </div>
+                </a>
+            </div>
+
+            <h2 class="section-title">Cele mai vândute modele</h2>
+            <div class="products-flex-container">
+                <div class="product-card">
+                    <img src="img/mavic_3_pro.jpg" onerror="this.src='https://placehold.co/300x200?text=Mavic+3'" class="card-img" alt="Drona">
+                    <div class="card-content">
+                        <h3>Mavic 3 PRO</h3>
+                        <p class="pret">13500 RON</p>
+                        <a href="Drone.php" class="btn-cumpara">Vezi Detalii</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="img/air_3.jpg" onerror="this.src='https://placehold.co/300x200?text=Air+3'" class="card-img" alt="Drona">
+                    <div class="card-content">
+                        <h3>DJI Air 3</h3>
+                        <p class="pret">5500 RON</p>
+                        <a href="Drone.php" class="btn-cumpara">Vezi Detalii</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="img/mini_4_pro.jpg" onerror="this.src='https://placehold.co/300x200?text=Mini+4'" class="card-img" alt="Drona">
+                    <div class="card-content">
+                        <h3>Mini 4 PRO</h3>
+                        <p class="pret">4200 RON</p>
+                        <a href="Drone.php" class="btn-cumpara">Vezi Detalii</a>
+                    </div>
+                </div>
+            </div>
+
         </main>
 
         <footer class="site-footer">
+            <p>&copy; 2026 Drone Management</p>
         </footer>
 
         <a href="#" id="backToTop">⬆ Sus</a>
     </div>
-
+    
+    <script>
+        let mybutton = document.getElementById("backToTop");
+        window.onscroll = function() {
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+        }
+        mybutton.addEventListener("click", function(event) {
+            event.preventDefault(); 
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        });
+    </script>
 </body>
 </html>

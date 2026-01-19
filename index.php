@@ -1,1 +1,1 @@
-<?php echo "Buna"; ?>
+<?php echo "Prima ora de proiect"; ?>

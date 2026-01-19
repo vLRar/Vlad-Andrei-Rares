@@ -9,91 +9,139 @@
 <body>
 
     <div class="grid-container">
+        
         <header class="site-header">
             <h1>Finalizare Comandă</h1>
         </header>
 
         <nav class="site-nav">
-            <a href="Welcome.html">Welcome</a>
             <a href="Homepage.html">Homepage</a>
-            <a href="Produse.html">Produse</a>
-            <a href="Drone.html">Drone</a>
-            <a href="Accesori.html">Accesorii</a>
+            <a href="Drone.php">Drone</a>
+            <a href="Accesorii.php">Accesorii</a>
             <a href="Newsletter.html">Newsletter</a>
             <a href="Checkout.html" class="active">Checkout</a>
         </nav>
 
         <main class="site-main">
             
-            <div class="checkout-container">
-                
-                <div class="checkout-form">
-                    <h2>Date de livrare</h2>
-                    <form action="/action_page.php">
-                        <label for="nume">Nume Complet</label>
-                        <input type="text" id="nume" name="nume" placeholder="Ex: Ion Popescu" required>
+            <form id="formular-comanda" onsubmit="trimiteComanda(event)">
+                <div class="checkout-layout">
+                    
+                    <div class="form-section">
+                        <h2>Date de livrare</h2>
+                        
+                        <h3>Cine primește comanda?</h3>
+                        <div class="row-inputs">
+                            <input type="text" class="custom-input" placeholder="Nume" required>
+                            <input type="text" class="custom-input" placeholder="Prenume" required>
+                        </div>
+                        
+                        <input type="email" class="custom-input" placeholder="Adresa de Email" required>
+                        <input type="tel" class="custom-input" placeholder="Telefon (curier)" required>
 
-                        <label for="email">Email</label>
-                        <input type="text" id="email" name="email" placeholder="ion@email.com" required>
+                        <h3>Unde livrăm?</h3>
+                        <input type="text" class="custom-input" placeholder="Adresa completă (Strada, Număr, Bloc...)" required>
+                        
+                        <div class="row-inputs">
+                            <input type="text" class="custom-input" placeholder="Județ" required>
+                            <input type="text" class="custom-input" placeholder="Oraș" required>
+                            <input type="text" class="custom-input" placeholder="Cod Poștal">
+                        </div>
 
-                        <label for="adresa">Adresă de livrare</label>
-                        <input type="text" id="adresa" name="adresa" placeholder="Strada, Număr, Bloc..." required>
+                        <h3>Observații (Opțional)</h3>
+                        <textarea class="custom-input" rows="3"></textarea>
+                    </div>
 
-                        <div class="form-row">
-                            <div class="half-width">
-                                <label for="oras">Oraș</label>
-                                <input type="text" id="oras" name="oras" placeholder="București">
+                    <div class="summary-card">
+                        <h2>Sumar Comandă</h2>
+                        
+                        <div class="order-list" id="lista-produse">
                             </div>
-                            <div class="half-width">
-                                <label for="cod">Cod Poștal</label>
-                                <input type="text" id="cod" name="cod" placeholder="123456">
-                            </div>
+
+                        <div style="text-align: right; color: #888; font-size: 0.9rem; margin-bottom: 5px;">
+                            Livrare: <strong>Gratuită</strong>
                         </div>
 
-                        <h3>Date Card (Simulare)</h3>
-                        <label for="card">Număr Card</label>
-                        <input type="text" id="card" name="card" placeholder="1111-2222-3333-4444">
+                        <div class="total-display" id="total-comanda">
+                            <span>Total:</span>
+                            <span>0 RON</span>
+                        </div>
 
-                        <input type="submit" value="Plătește Acum" class="btn-cumpara" style="width: 100%; border: none; cursor: pointer; margin-top: 20px;">
-                    </form>
-                </div>
-
-                <div class="checkout-cart">
-                    <div class="cart-box">
-                        <h3>Coșul tău <span style="float:right">4 produse</span></h3>
-                        <div class="cart-item">
-                            <span>Drona Phantom X</span>
-                            <span class="price">2500 RON</span>
-                        </div>
-                        <div class="cart-item">
-                            <span>Baterie Extra</span>
-                            <span class="price">450 RON</span>
-                        </div>
-                        <div class="cart-item">
-                            <span>Set Elice</span>
-                            <span class="price">120 RON</span>
-                        </div>
-                        <div class="cart-item">
-                            <span>Taxă Livrare</span>
-                            <span class="price">20 RON</span>
-                        </div>
-                        <hr>
-                        <div class="cart-total">
-                            <strong>Total</strong>
-                            <strong class="price" style="color:black">3090 RON</strong>
+                        <button type="submit" class="btn-finalizare">
+                            CONFIRMĂ COMANDA
+                        </button>
+                        
+                        <div style="text-align:center; margin-top:15px;">
+                            <a href="#" onclick="golesteCos()" style="color:#d32f2f; font-size:0.9rem; text-decoration:underline;">
+                                Golește Coșul
+                            </a>
                         </div>
                     </div>
-                </div>
 
-            </div>
+                </div>
+            </form>
 
         </main>
 
         <footer class="site-footer">
+            <p>&copy; 2026 Drone Management</p>
         </footer>
-
-        <a href="#" id="backToTop">⬆ Sus</a>
     </div>
 
+    <script>
+        let cos = JSON.parse(localStorage.getItem('cosCumparaturi')) || [];
+        
+        let containerProduse = document.getElementById('lista-produse');
+        let textTotal = document.getElementById('total-comanda');
+        let valoareTotal = textTotal.querySelector('span:last-child');
+        
+        function afiseazaCos() {
+            if (cos.length === 0) {
+                containerProduse.innerHTML = '<p style="text-align:center; color:#999; padding:20px;">Coșul este gol.</p>';
+                valoareTotal.innerText = '0 RON';
+                return;
+            }
+
+            let html = '';
+            let total = 0;
+
+            cos.forEach((produs) => {
+                html += `
+                <div class="order-item">
+                    <span>${produs.nume}</span>
+                    <strong>${produs.pret} RON</strong>
+                </div>`;
+                
+                let pretCurat = produs.pret.toString().replace(/[^0-9]/g, ''); 
+                total += parseInt(pretCurat);
+            });
+
+            containerProduse.innerHTML = html;
+            valoareTotal.innerText = total + ' RON';
+        }
+
+        function golesteCos() {
+            if(confirm("Ești sigur că vrei să ștergi tot coșul?")) {
+                localStorage.removeItem('cosCumparaturi');
+                cos = [];
+                afiseazaCos();
+            }
+        }
+
+        function trimiteComanda(e) {
+            e.preventDefault();
+            if (cos.length === 0) {
+                alert("Te rugăm să adaugi produse înainte de a comanda!");
+                return;
+            }
+            alert("✅ Comanda a fost plasată cu succes! Mulțumim.");
+            localStorage.removeItem('cosCumparaturi');
+            cos = [];
+            afiseazaCos();
+            window.location.href = "Homepage.html";
+        }
+
+        afiseazaCos();
+    </script>
 </body>
 </html>
