@@ -89,7 +89,7 @@
     </div>
 
     <script>
-        let cos = JSON.parse(localStorage.getItem('cosCumparaturi')) || [];
+        let cos = JSON.parse(localStorage.getItem('cosCumparaturi')) || []; //citeste din local storage
         
         let containerProduse = document.getElementById('lista-produse');
         let textTotal = document.getElementById('total-comanda');
@@ -112,8 +112,8 @@
                     <strong>${produs.pret} RON</strong>
                 </div>`;
                 
-                let pretCurat = produs.pret.toString().replace(/[^0-9]/g, ''); 
-                total += parseInt(pretCurat);
+                let pretCurat = produs.pret.toString().replace(/[^0-9]/g, ''); // transforma pretul intr-un string si sterge RON
+                total += parseInt(pretCurat);//transforma string-ul in numar
             });
 
             containerProduse.innerHTML = html;

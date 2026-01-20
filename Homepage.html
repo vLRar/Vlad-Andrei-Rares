@@ -84,15 +84,15 @@
     </div>
     
     <script>
-        let mybutton = document.getElementById("backToTop");
+        let mybutton = document.getElementById("backToTop"); // butonul care duce inapoi sus
         window.onscroll = function() {
             if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-                mybutton.style.display = "block";
+                mybutton.style.display = "block"; // arata butonul 
             } else {
-                mybutton.style.display = "none";
+                mybutton.style.display = "none"; // ascunde butonul
             }
         }
-        mybutton.addEventListener("click", function(event) {
+        mybutton.addEventListener("click", function(event) {//pentru derulare smooth
             event.preventDefault(); 
             window.scrollTo({top: 0, behavior: 'smooth'});
         });

@@ -1,33 +1,32 @@
 <?php
-require 'db_connect.php';
+require 'db.php';
 
-// --- LOGICA PENTRU FILTRARE ---
-$marca_selectata = isset($_GET['marca']) ? $_GET['marca'] : '';
+$marca_selectata = isset($_GET['marca']) ? $_GET['marca'] : ''; //preluarea parametrilor (marca, pret)
 $pret_maxim = isset($_GET['pret']) ? $_GET['pret'] : '';
 
 $sql = "SELECT * FROM Drone_Disponibile WHERE 1=1"; 
-$params = [];
+$params = []; //initializarea unui array gol
 
-if (!empty($marca_selectata)) {
-    $sql .= " AND Marca = :marca";
+if (!empty($marca_selectata)) { //selectarea marcii
+    $sql .= " AND Marca = :marca"; //placeholder
     $params[':marca'] = $marca_selectata;
 }
 
-if (!empty($pret_maxim)) {
+if (!empty($pret_maxim)) { 
     $sql .= " AND Pret <= :pret";
     $params[':pret'] = $pret_maxim;
 }
 
 try {
-    $stmt = $pdo->prepare($sql);
+    $stmt = $pdo->prepare($sql); //executarea interogarii
     $stmt->execute($params);
     $drone = $stmt->fetchAll();
     
-    $stmtMarci = $pdo->query("SELECT DISTINCT Marca FROM Drone_Disponibile ORDER BY Marca");
+    $stmtMarci = $pdo->query("SELECT DISTINCT Marca FROM Drone_Disponibile ORDER BY Marca"); //selectarea marcilor  
     $toateMarcile = $stmtMarci->fetchAll(PDO::FETCH_COLUMN);
 
 } catch (Exception $e) {
-    $error = "Eroare: " . $e->getMessage();
+    $error = "Eroare: " . $e->getMessage(); //erori
 }
 
 function genereazaNumeFisier($nume) {
@@ -153,7 +152,7 @@ function genereazaNumeFisier($nume) {
     <script>
         let mybutton = document.getElementById("backToTop");
         window.onscroll = function() {
-            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {  //arata butonul daca s-a dat scroll mai mult de 200px
                 mybutton.style.display = "block";
             } else {
                 mybutton.style.display = "none";

@@ -1,5 +1,5 @@
 <?php
-require 'db_connect.php';
+require 'db.php';
 $pret_maxim = isset($_GET['pret']) ? $_GET['pret'] : '';
 $sql = "SELECT * FROM Accesorii WHERE 1=1"; 
 $params = [];
